@@ -1,0 +1,16 @@
+body {
+    background-color:aliceblue;
+    color:midnightblue;
+}
+
+h1 {
+    text-align:center;
+}
+
+hr {
+    border:2px double midnightblue;
+}
+
+footer {
+    text-align: center;
+}

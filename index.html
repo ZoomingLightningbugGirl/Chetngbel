@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chetngbel Hotel | Home</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Chetngbel Hotel</h1>
+            <hr />
+        </header>
+        <main>
+            <section>
+                <h2>Chetngbel-- your all-inclusive <span id="calling">calling</span>.</h2>
+                <script>
+                    let calling = document.getElementById('calling');
+                    calling.onmouseover = function() {
+                        calling.textContent = "ending";
+                        for(let i=0; i < 4; i++) {
+                            alert("Chetngbel is your safe haven :)");
+                        }
+                    }
+                </script>
+                <p>
+                    Welcome to Chetngbel, your <span id="fate">fate</span>. With our quality meals and customer service, your stay will certainly 
+                    be memorable. So much so, you may not even remember what life was like before your experience here. Our technology and 
+                    meetups available make this a highly attractive experience to your teen, and you'll finally be able to get rid of them for 
+                    once!
+                </p>
+                <script>
+                    let fate = document.getElementById('fate');
+                    let bg = document.getElementsByTagName('html');
+                    fate.onmouseover = function() {
+                        fate.textContent = "demise";
+                        let bgcolor = bg[0].getAttribute('background-color');
+                    }
+                </script>
+            </section>
+        </main>
+        <footer>Copyright 2026 Chetngbel Hotel</footer>
+    </body>
+</html>
