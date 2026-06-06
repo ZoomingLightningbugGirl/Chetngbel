@@ -1,6 +1,7 @@
 body {
     background-color:aliceblue;
     color:midnightblue;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
@@ -9,6 +10,22 @@ h1 {
 
 hr {
     border:2px double midnightblue;
+}
+
+#reviews {
+    display:block;
+    text-align:center;
+    margin:5px;
+}
+
+.review-box {
+    display:inline-block;
+    background-color:rgba(148, 255, 235, 0.8);
+    width:30vw;
+    height:300px;
+    padding:10px;
+    border:3px dotted midnightblue;
+    border-radius:20px;
 }
 
 footer {

@@ -6,3 +6,25 @@ I'll make a website for the hotel and a site for each blog.
 I also made note entries for the Sophia character.
 
 Next, I'll do the rest of the notes.
+
+Today, I learned some new JavaScript tricks. I learned how to use events and manipulate styles. So, what I've done is started adding easter eggs to the website and having it change its words to be more creepy and show the dual nature of the liminal game.
+
+I'm thinking of using steganography to add easter egg messages into the note images themselves. Although, I'll have to find a way for the user 
+to have access to the actual image files out-of-game.
+
+Next up, I wanna add more images to make the site more robust. I also wanna add a login feature for those who can find out the characters' users 
+and passwords and stuff. Then again, that may raise security issues, so I'll just add some type of reward code feature.
+
+WHAT I PLAN TO LEARN THROUGH THIS PROJECT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- I intend to learn more about GDScript
+- I intend to use my newfound cybersecurity skills to add even more Easter eggs into the ARG
+- Learn more JavaScript to make the website of the hotel even more interactive and engaging
+- Upload the game to Itch.io and learn to market it
+- Learn how to believe in myself and ACTUALLY finish a project to ship.
+- Teach myself more 3D animation in Blender.
+
+Next Steps...
+- Create the Godot 3D project (Done!)
+- Begin designing the actual hotel space
+- Write more notes or diary entries by other characters

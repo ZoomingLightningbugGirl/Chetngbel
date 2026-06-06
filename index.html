@@ -5,10 +5,13 @@
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="styles.css" />
     </head>
-    <body>
+    <body id="page">
         <header>
             <h1>Chetngbel Hotel</h1>
-            <hr />
+            <nav>
+                <li><a href='package.html'>Package</a></li>
+            </nav>
+            <hr id="ruler" />
         </header>
         <main>
             <section>
@@ -30,12 +33,38 @@
                 </p>
                 <script>
                     let fate = document.getElementById('fate');
-                    let bg = document.getElementsByTagName('html');
+                    let page = document.getElementById('page');
+                    let ruler = document.getElementById('ruler');
+                    let reviewBoxes = document.getElementsByClassName('review-box');
                     fate.onmouseover = function() {
                         fate.textContent = "demise";
-                        let bgcolor = bg[0].getAttribute('background-color');
+                        page.style.backgroundColor = '#CC0000';
+                        page.style.color = "#331B02";
+                        page.style.fontFamily = 'Times New Roman';
+                        ruler.style.borderColor = '#331B02';
                     }
                 </script>
+            </section>
+            <section id="reviews">
+                <h2>Our Reviews</h2>
+                <div class="review-box">
+                    <h3>Smf! ;></h3>
+                    <p>During our stay, the girlies and I got the ULTIMATE tan and felt so relaxed. We were so calm that when we got home, 
+                        my parents said I looked like the walking dead xD!! Overall i wud SO recommend this place!! It will be life-changing.
+                    </p>
+                </div>
+                <div class="review-box">
+                    <h3>Smf! ;></h3>
+                    <p>During our stay, the girlies and I got the ULTIMATE tan and felt so relaxed. We were so calm that when we got home, 
+                        my parents said I looked like the walking dead xD!! Overall i wud SO recommend this place!! It will be life-changing.
+                    </p>
+                </div>
+                <div class="review-box">
+                    <h3>Smf! ;></h3>
+                    <p>During our stay, the girlies and I got the ULTIMATE tan and felt so relaxed. We were so calm that when we got home, 
+                        my parents said I looked like the walking dead xD!! Overall i wud SO recommend this place!! It will be life-changing.
+                    </p>
+                </div>
             </section>
         </main>
         <footer>Copyright 2026 Chetngbel Hotel</footer>
