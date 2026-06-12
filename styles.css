@@ -28,6 +28,14 @@ hr {
     border-radius:20px;
 }
 
+faq h2 {
+    display:block;
+    border-radius:20px;
+    border:2px solid midnightblue;
+    background-color:antiquewhite;
+    padding:10px;
+}
+
 footer {
     text-align: center;
 }

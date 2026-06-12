@@ -1,17 +1,117 @@
-[gd_scene load_steps=3 format=3 uid="uid://mddc7jeeaagy"]
+[gd_scene load_steps=16 format=3 uid="uid://mddc7jeeaagy"]
 
 [ext_resource type="Script" path="res://player_body.gd" id="1_mv5gu"]
+[ext_resource type="ArrayMesh" uid="uid://dynjw0m1r4ppa" path="res://floor.obj" id="2_k3jnc"]
+[ext_resource type="ArrayMesh" uid="uid://dg2kjoo2y537d" path="res://Nightstand.obj" id="3_ufjgp"]
+[ext_resource type="ArrayMesh" uid="uid://dsfbwj4klcm4e" path="res://chair.obj" id="4_7tyfs"]
+[ext_resource type="ArrayMesh" uid="uid://dlgpoic10tr7a" path="res://Book.obj" id="5_42ocn"]
+[ext_resource type="ArrayMesh" uid="uid://ro80l32o8e7l" path="res://urded.obj" id="5_ppbrj"]
+[ext_resource type="Texture2D" uid="uid://cwn4t8kci64nn" path="res://note1.png" id="6_xhxpo"]
+[ext_resource type="Texture2D" uid="uid://b15jr0qnh0me" path="res://note2.png" id="7_coh5v"]
+[ext_resource type="Texture2D" uid="uid://du47cijop6d28" path="res://note3.png" id="8_7oxpl"]
+[ext_resource type="Texture2D" uid="uid://brublicoh6bsp" path="res://note4.png" id="9_l7u1h"]
+[ext_resource type="ArrayMesh" uid="uid://bt6eo125nwlbj" path="res://Bed.obj" id="11_f2kgh"]
+[ext_resource type="ArrayMesh" uid="uid://vta0k63ins4o" path="res://Lamp.obj" id="12_nuauq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mpwc0"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xk6g2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dvygv"]
+size = Vector3(3.1, 0.1, 3.1)
+
 [node name="Node3D" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-
 [node name="PlayerBody" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18681, 0)
 script = ExtResource("1_mv5gu")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="PlayerBody"]
 shape = SubResource("CapsuleShape3D_mpwc0")
 
+[node name="Camera3D" type="Camera3D" parent="PlayerBody"]
+
 [node name="Candle" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.547, 0.969, 2.793)
+
+[node name="Nightstand" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.244766, 0, 0.969582, 0, 1, 0, -0.969582, 0, 0.244766, -0.439336, 0.469091, 3.06902)
+mesh = ExtResource("3_ufjgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Nightstand"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand/StaticBody3D"]
+shape = SubResource("BoxShape3D_xk6g2")
+
+[node name="Chair" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.212126, 0, 0.977242, 0, 1, 0, -0.977242, 0, 0.212126, 0.396961, 0.259812, 3.11515)
+mesh = ExtResource("4_7tyfs")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Chair"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chair/StaticBody3D"]
+shape = SubResource("BoxShape3D_xk6g2")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.16622, 0, 0, 0, 1, 0, 0, 0, 2.30964, 0, 0, 0)
+mesh = ExtResource("2_k3jnc")
+
+[node name="Floor3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor3D"]
+shape = SubResource("BoxShape3D_dvygv")
+
+[node name="Book" type="MeshInstance3D" parent="Floor/Floor3D"]
+transform = Transform3D(0.162174, 0, 0, 0, 1, 0, 0, 0, 0.432968, -0.0683937, 1.04883, 1.06285)
+mesh = ExtResource("5_42ocn")
+
+[node name="Wall1" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.82545, 0, 0, 0, -4.47605e-08, -1.56046, 0, 1.024, -6.82097e-08, 0, 2.35285, 3.50177)
+mesh = ExtResource("2_k3jnc")
+skeleton = NodePath("../Floor")
+
+[node name="Floor3D" type="StaticBody3D" parent="Wall1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall1/Floor3D"]
+shape = SubResource("BoxShape3D_dvygv")
+
+[node name="Wall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.98334, 0, 0, 0, -4.47605e-08, -1.56046, 0, 1.024, -6.82097e-08, 0, 2.35285, -3.5186)
+mesh = ExtResource("2_k3jnc")
+skeleton = NodePath("../Floor")
+
+[node name="Floor3D" type="StaticBody3D" parent="Wall2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2/Floor3D"]
+shape = SubResource("BoxShape3D_dvygv")
+
+[node name="Urded" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 0.541234, 1.94015, -3.32975)
+mesh = ExtResource("5_ppbrj")
+
+[node name="SophiaNote1" type="Sprite3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 3.16555, 0.686675, -3.38474)
+texture = ExtResource("6_xhxpo")
+
+[node name="SophiaNote2" type="Sprite3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 3.16555, 0.686675, -3.38474)
+visible = false
+texture = ExtResource("7_coh5v")
+
+[node name="SophiaNote3" type="Sprite3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 3.16555, 0.686675, -3.38474)
+visible = false
+texture = ExtResource("8_7oxpl")
+
+[node name="SophiaNote4" type="Sprite3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 3.16555, 0.686675, -3.38474)
+visible = false
+texture = ExtResource("9_l7u1h")
+
+[node name="Bed" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86371, 0.41505, 2.89642)
+mesh = ExtResource("11_f2kgh")
+
+[node name="Lamp" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546751, 0.969091, 2.79294)
+mesh = ExtResource("12_nuauq")
