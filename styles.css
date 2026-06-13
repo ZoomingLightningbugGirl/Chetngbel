@@ -12,6 +12,11 @@ hr {
     border:2px double midnightblue;
 }
 
+nav li {
+    list-style: none;
+    display:inline-block;
+}
+
 #reviews {
     display:block;
     text-align:center;
@@ -34,6 +39,16 @@ faq h2 {
     border:2px solid midnightblue;
     background-color:antiquewhite;
     padding:10px;
+}
+
+.restaurant {
+    border:3px solid midnightblue;
+    border-radius:20px;
+    background-color:beige;
+    width:30vw;
+    display: inline-block;
+    height:300px;
+    padding:20px;
 }
 
 footer {
