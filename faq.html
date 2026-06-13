@@ -13,10 +13,43 @@
             <hr />
         </header>
         <main id="faq">
-            <h2>Is your resort family-friendly?</h2>
-            <h2>How is the resort so inexpensive?</h2>
-            <h2>What happened during the missing case of 1984?</h2>
-            <h2>What are your spa products?</h2>
+            <h2 id="family">Is your resort family-friendly?</h2>
+            <p id="family-answer" class="faq-answer"></p>
+            <script>
+                let familyQuestion = document.getElementById('family');
+                let familyAnswer = document.getElementById('family-answer');
+                familyQuestion.onmousedown = function() {
+                    console.log('Something is seriously wrong.');
+                    console.log("They're lying to you. Please. Help me.");
+                    familyAnswer.textContent = "Of course! Our resort offers only the safest, most soothing havens for parents and littles.";
+                }
+            </script>
+            <h2 id="cheap">How is the resort so inexpensive?</h2>
+            <p id="cheap-answer" class="faq-answer"></p>
+            <script>
+                let cheapQuestion = document.getElementById('cheap');
+                let cheapAnswer = document.getElementById('cheap-answer');
+                cheapQuestion.onmousedown = function() {
+                    console.log('The money is how they catch you.');
+                    console.log("Please. Do not attend this resort.");
+                    cheapAnswer.textContent = "Our resort is funded by the Aaliyah White Grant, our founder who died mysteriously and ";
+                    cheapAnswer.textContent += "left her inheritance to help fund our resources and activities, leaving more worrying about fun!";
+                }
+            </script>
+            <h2 id="missing">What happened during the missing case of 1984?</h2>
+            <p id="missing-answer" class="faq-answer"></p>
+            <script>
+                let missingQuestion = document.getElementById('missing');
+                let missingAnswer = document.getElementById('missing-answer');
+                missingQuestion.onmousedown = function() {
+                    console.log('Find us.');
+                    console.log("Find our notes and escape this place.");
+                    missingAnswer.textContent = "The girl had simply run away like teenagers tend to do. The parent made a stunt for clout ";
+                    missingAnswer.textContent += "and to defame our beautiful utopia.";
+                }
+            </script>
+            <h2 id="spa">What are your spa products?</h2>
+            <p id="spa-answer" class="faq-answer"></p>
         </main>
         <footer>Copyright 2026 Chetngbel Hotel</footer>
     </body>
