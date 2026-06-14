@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://mddc7jeeaagy"]
+[gd_scene load_steps=19 format=3 uid="uid://mddc7jeeaagy"]
 
 [ext_resource type="Script" path="res://player_body.gd" id="1_mv5gu"]
 [ext_resource type="ArrayMesh" uid="uid://dynjw0m1r4ppa" path="res://floor.obj" id="2_k3jnc"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://brublicoh6bsp" path="res://note4.png" id="9_l7u1h"]
 [ext_resource type="ArrayMesh" uid="uid://bt6eo125nwlbj" path="res://Bed.obj" id="11_f2kgh"]
 [ext_resource type="ArrayMesh" uid="uid://vta0k63ins4o" path="res://Lamp.obj" id="12_nuauq"]
+[ext_resource type="ArrayMesh" uid="uid://ctg50jon1al1" path="res://floorplan.obj" id="13_48ggd"]
+[ext_resource type="ArrayMesh" uid="uid://v7onbj7wpsjl" path="res://door.obj" id="14_dh7m5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mpwc0"]
 
@@ -19,6 +21,10 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dvygv"]
 size = Vector3(3.1, 0.1, 3.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y1u6m"]
+margin = 0.0
+size = Vector3(2, 1, 1.4)
 
 [node name="Node3D" type="Node3D"]
 
@@ -112,6 +118,387 @@ texture = ExtResource("9_l7u1h")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86371, 0.41505, 2.89642)
 mesh = ExtResource("11_f2kgh")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00771, 0.155205, -0.656382)
+shape = SubResource("BoxShape3D_y1u6m")
+
 [node name="Lamp" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546751, 0.969091, 2.79294)
 mesh = ExtResource("12_nuauq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370148, 0)
+
+[node name="Lamp2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -7.45347, 0.841969, 20.4995)
+mesh = ExtResource("12_nuauq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lamp2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370148, 0)
+
+[node name="Floorplan" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.71327, 0, 19.261)
+mesh = ExtResource("13_48ggd")
+
+[node name="Door" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1.05736, 0, 1.05736, 0, -1, 0, -4.62189e-08, -2.64096, 1.16965, 20.1046)
+mesh = ExtResource("14_dh7m5")
+
+[node name="Bed2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.748052, 0, 0.0540148, 0, 0.505, 0, -0.0540148, 0, -0.748052, -7.27043, 0.35052, 21.3529)
+mesh = ExtResource("11_f2kgh")
+skeleton = NodePath("../Bed")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00771, 0.155205, -0.656382)
+shape = SubResource("BoxShape3D_y1u6m")
+
+[node name="Nightstand2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.69947, 0, -0.0272377, 0, 0.7, 0, 0.0272377, 0, -0.69947, -7.31006, 0.433142, 20.4093)
+mesh = ExtResource("3_ufjgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Nightstand2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409866, 0, -0.451694)
+shape = SubResource("BoxShape3D_xk6g2")
+
+[node name="Lamp4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -12.6363, 0.841969, 20.4995)
+mesh = ExtResource("12_nuauq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lamp4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370148, 0)
+
+[node name="Bed4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.748052, 0, 0.0540148, 0, 0.505, 0, -0.0540148, 0, -0.748052, -12.4532, 0.35052, 21.3529)
+mesh = ExtResource("11_f2kgh")
+skeleton = NodePath("../Bed")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00771, 0.155205, -0.656382)
+shape = SubResource("BoxShape3D_y1u6m")
+
+[node name="Nightstand4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.69947, 0, -0.0272377, 0, 0.7, 0, 0.0272377, 0, -0.69947, -12.4928, 0.433142, 20.4093)
+mesh = ExtResource("3_ufjgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Nightstand4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409866, 0, -0.451694)
+shape = SubResource("BoxShape3D_xk6g2")
+
+[node name="Lamp12" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -12.6363, 0.841969, 11.8975)
+mesh = ExtResource("12_nuauq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lamp12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370148, 0)
+
+[node name="Bed12" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.748052, 0, 0.0540148, 0, 0.505, 0, -0.0540148, 0, -0.748052, -12.4532, 0.35052, 12.7509)
+mesh = ExtResource("11_f2kgh")
+skeleton = NodePath("../Bed")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed12/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00771, 0.155205, -0.656382)
+shape = SubResource("BoxShape3D_y1u6m")
+
+[node name="Nightstand12" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.69947, 0, -0.0272377, 0, 0.7, 0, 0.0272377, 0, -0.69947, -12.4928, 0.433142, 11.8073)
+mesh = ExtResource("3_ufjgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Nightstand12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand12/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409866, 0, -0.451694)
+shape = SubResource("BoxShape3D_xk6g2")
+
+[node name="Lamp13" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -7.28233, 0.841969, 11.8975)
+mesh = ExtResource("12_nuauq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lamp13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370148, 0)
+
+[node name="Bed13" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.748052, 0, 0.0540148, 0, 0.505, 0, -0.0540148, 0, -0.748052, -7.09929, 0.35052, 12.7509)
+mesh = ExtResource("11_f2kgh")
+skeleton = NodePath("../Bed")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed13"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed13/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00771, 0.155205, -0.656382)
+shape = SubResource("BoxShape3D_y1u6m")
+
+[node name="Nightstand13" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.69947, 0, -0.0272377, 0, 0.7, 0, 0.0272377, 0, -0.69947, -7.13891, 0.433142, 11.8073)
+mesh = ExtResource("3_ufjgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Nightstand13"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand13/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409866, 0, -0.451694)
+shape = SubResource("BoxShape3D_xk6g2")
+
+[node name="Lamp14" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.91962, 0.841969, 11.8975)
+mesh = ExtResource("12_nuauq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lamp14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370148, 0)
+
+[node name="Bed14" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.748052, 0, 0.0540148, 0, 0.505, 0, -0.0540148, 0, -0.748052, -1.73658, 0.35052, 12.7509)
+mesh = ExtResource("11_f2kgh")
+skeleton = NodePath("../Bed")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed14"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed14/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00771, 0.155205, -0.656382)
+shape = SubResource("BoxShape3D_y1u6m")
+
+[node name="Nightstand14" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.69947, 0, -0.0272377, 0, 0.7, 0, 0.0272377, 0, -0.69947, -1.7762, 0.433142, 11.8073)
+mesh = ExtResource("3_ufjgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Nightstand14"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand14/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409866, 0, -0.451694)
+shape = SubResource("BoxShape3D_xk6g2")
+
+[node name="Lamp5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -12.6363, 0.841969, 16.0277)
+mesh = ExtResource("12_nuauq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lamp5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370148, 0)
+
+[node name="Bed5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.748052, 0, 0.0540148, 0, 0.505, 0, -0.0540148, 0, -0.748052, -12.4532, 0.35052, 16.8811)
+mesh = ExtResource("11_f2kgh")
+skeleton = NodePath("../Bed")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00771, 0.155205, -0.656382)
+shape = SubResource("BoxShape3D_y1u6m")
+
+[node name="Nightstand5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.69947, 0, -0.0272377, 0, 0.7, 0, 0.0272377, 0, -0.69947, -12.4928, 0.433142, 15.9375)
+mesh = ExtResource("3_ufjgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Nightstand5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409866, 0, -0.451694)
+shape = SubResource("BoxShape3D_xk6g2")
+
+[node name="Lamp6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -7.29536, 0.841969, 16.0277)
+mesh = ExtResource("12_nuauq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lamp6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370148, 0)
+
+[node name="Bed6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.748052, 0, 0.0540148, 0, 0.505, 0, -0.0540148, 0, -0.748052, -7.11232, 0.35052, 16.8811)
+mesh = ExtResource("11_f2kgh")
+skeleton = NodePath("../Bed")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed6/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00771, 0.155205, -0.656382)
+shape = SubResource("BoxShape3D_y1u6m")
+
+[node name="Nightstand6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.69947, 0, -0.0272377, 0, 0.7, 0, 0.0272377, 0, -0.69947, -7.15194, 0.433142, 15.9375)
+mesh = ExtResource("3_ufjgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Nightstand6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand6/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409866, 0, -0.451694)
+shape = SubResource("BoxShape3D_xk6g2")
+
+[node name="Lamp7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.92674, 0.841969, 16.0277)
+mesh = ExtResource("12_nuauq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lamp7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370148, 0)
+
+[node name="Bed7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.748052, 0, 0.0540148, 0, 0.505, 0, -0.0540148, 0, -0.748052, -1.7437, 0.35052, 16.8811)
+mesh = ExtResource("11_f2kgh")
+skeleton = NodePath("../Bed")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed7/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00771, 0.155205, -0.656382)
+shape = SubResource("BoxShape3D_y1u6m")
+
+[node name="Nightstand7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.69947, 0, -0.0272377, 0, 0.7, 0, 0.0272377, 0, -0.69947, -1.78332, 0.433142, 15.9375)
+mesh = ExtResource("3_ufjgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Nightstand7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand7/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409866, 0, -0.451694)
+shape = SubResource("BoxShape3D_xk6g2")
+
+[node name="Lamp8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.92674, 0.841969, 24.6382)
+mesh = ExtResource("12_nuauq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lamp8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370148, 0)
+
+[node name="Bed8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.748052, 0, 0.0540148, 0, 0.505, 0, -0.0540148, 0, -0.748052, -1.7437, 0.35052, 25.4916)
+mesh = ExtResource("11_f2kgh")
+skeleton = NodePath("../Bed")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00771, 0.155205, -0.656382)
+shape = SubResource("BoxShape3D_y1u6m")
+
+[node name="Nightstand8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.69947, 0, -0.0272377, 0, 0.7, 0, 0.0272377, 0, -0.69947, -1.78332, 0.433142, 24.548)
+mesh = ExtResource("3_ufjgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Nightstand8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409866, 0, -0.451694)
+shape = SubResource("BoxShape3D_xk6g2")
+
+[node name="Lamp9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.92674, 0.841969, 24.6382)
+mesh = ExtResource("12_nuauq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lamp9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370148, 0)
+
+[node name="Bed9" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.748052, 0, 0.0540148, 0, 0.505, 0, -0.0540148, 0, -0.748052, -1.7437, 0.35052, 25.4916)
+mesh = ExtResource("11_f2kgh")
+skeleton = NodePath("../Bed")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed9/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00771, 0.155205, -0.656382)
+shape = SubResource("BoxShape3D_y1u6m")
+
+[node name="Nightstand9" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.69947, 0, -0.0272377, 0, 0.7, 0, 0.0272377, 0, -0.69947, -1.78332, 0.433142, 24.548)
+mesh = ExtResource("3_ufjgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Nightstand9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand9/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409866, 0, -0.451694)
+shape = SubResource("BoxShape3D_xk6g2")
+
+[node name="Lamp10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -7.33066, 0.841969, 24.6382)
+mesh = ExtResource("12_nuauq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lamp10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370148, 0)
+
+[node name="Bed10" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.748052, 0, 0.0540148, 0, 0.505, 0, -0.0540148, 0, -0.748052, -7.14762, 0.35052, 25.4916)
+mesh = ExtResource("11_f2kgh")
+skeleton = NodePath("../Bed")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed10/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00771, 0.155205, -0.656382)
+shape = SubResource("BoxShape3D_y1u6m")
+
+[node name="Nightstand10" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.69947, 0, -0.0272377, 0, 0.7, 0, 0.0272377, 0, -0.69947, -7.18724, 0.433142, 24.548)
+mesh = ExtResource("3_ufjgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Nightstand10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand10/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409866, 0, -0.451694)
+shape = SubResource("BoxShape3D_xk6g2")
+
+[node name="Lamp11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -12.5797, 0.841969, 24.6382)
+mesh = ExtResource("12_nuauq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lamp11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370148, 0)
+
+[node name="Bed11" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.748052, 0, 0.0540148, 0, 0.505, 0, -0.0540148, 0, -0.748052, -12.3967, 0.35052, 25.4916)
+mesh = ExtResource("11_f2kgh")
+skeleton = NodePath("../Bed")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed11/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00771, 0.155205, -0.656382)
+shape = SubResource("BoxShape3D_y1u6m")
+
+[node name="Nightstand11" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.69947, 0, -0.0272377, 0, 0.7, 0, 0.0272377, 0, -0.69947, -12.4363, 0.433142, 24.548)
+mesh = ExtResource("3_ufjgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Nightstand11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand11/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409866, 0, -0.451694)
+shape = SubResource("BoxShape3D_xk6g2")
+
+[node name="Lamp3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.936, 0.841969, 20.4995)
+mesh = ExtResource("12_nuauq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lamp3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370148, 0)
+
+[node name="Bed3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.748052, 0, 0.0540148, 0, 0.505, 0, -0.0540148, 0, -0.748052, -1.88777, 0.35052, 21.3529)
+mesh = ExtResource("11_f2kgh")
+skeleton = NodePath("../Bed")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bed3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bed3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00771, 0.155205, -0.656382)
+shape = SubResource("BoxShape3D_y1u6m")
+
+[node name="Nightstand3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.69947, 0, -0.0272377, 0, 0.7, 0, 0.0272377, 0, -0.69947, -1.79258, 0.433142, 20.4093)
+mesh = ExtResource("3_ufjgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Nightstand3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Nightstand3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409866, 0, -0.451694)
+shape = SubResource("BoxShape3D_xk6g2")
